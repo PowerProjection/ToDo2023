@@ -1,12 +1,21 @@
 import React from "react";
-import {View, Text} from "react-native";
+import {View, Text, TextInput, TouchableOpacity} from "react-native";
+import styles from './Input.styles';
 
 const Input = () => {
     return(
-        <View>
-            <Text>
-                inputs here
-            </Text>
+        <View style={styles.inputView}>
+
+            <TextInput 
+                style={styles.inputTextInput} 
+                placeholder="Yapılacak..." 
+                placeholderTextColor="#7c7d7d"
+            />
+
+            <TouchableOpacity style={styles.inputTouchable} >
+                <Text style={styles.inputText} >Kaydet</Text>
+            </TouchableOpacity>
+
         </View>
     )
 }
