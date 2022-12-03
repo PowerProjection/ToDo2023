@@ -7,7 +7,7 @@ const Todos = (item) => {
         <View style={styles.todosView} >
             <TouchableOpacity 
             style={item.isDone ? styles.todosDoneTouchable : styles.todosTouchable}
-            onPress={() => console.log("gelistir")}
+            onPress={() => console.log(item.id, "-",item.isDone) & item.change(item.id)}
             >
                 
                 <Text style={item.isDone ? styles.todosDoneText : styles.todosText} >

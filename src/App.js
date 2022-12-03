@@ -18,7 +18,7 @@ const [dataState, setDataState] = useState(todo_data)
 const render = (item) => {
   return(
     <View>
-      <Todos name={item.name} isDone={item.isDone} />
+      <Todos name={item.name} isDone={item.isDone} id={item.id} change={doneChange} />
     </View>
   );
 }
