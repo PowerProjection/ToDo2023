@@ -7,7 +7,8 @@ import Todos from './components/Todos';
 const todo_data = [
   {id:1, name:'Köpeği gezdir', isDone:false},
   {id:2, name:'Çiçekleri sula', isDone:true},
-  {id:3, name:'Alışveriş yap', isDone:false}
+  {id:3, name:'Alışveriş yap', isDone:false},
+  {id:4, name:'Kitap oku', isDone:false}
 ]
 
 
