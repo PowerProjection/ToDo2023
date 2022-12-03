@@ -6,7 +6,10 @@ const Todos = (item) => {
     return(
         <View style={styles.todosView} >
             <TouchableOpacity 
-            style={item.isDone ? styles.todosDoneTouchable : styles.todosTouchable} >
+            style={item.isDone ? styles.todosDoneTouchable : styles.todosTouchable}
+            onPress={() => console.log("gelistir")}
+            >
+                
                 <Text style={item.isDone ? styles.todosDoneText : styles.todosText} >
                     {item.name}
                 </Text>
