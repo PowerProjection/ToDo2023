@@ -5,20 +5,22 @@ import Input from './components/Input';
 import Todos from './components/Todos';
 
 const todo_data = [
-  {id:1, name:'Köpeği gezdir', isDone:false},
-  {id:2, name:'Çiçekleri sula', isDone:true},
-  {id:3, name:'Alışveriş yap', isDone:false},
-  {id:4, name:'Kitap oku', isDone:false}
+  {id:Date.now() + Math.random(), todoTextVal:'Köpeği gezdir', isDone:false},
+  {id:Date.now() + Math.random(), todoTextVal:'Çiçekleri sula', isDone:true},
+  {id:Date.now() + Math.random(), todoTextVal:'Alışveriş yap', isDone:false},
+  {id:Date.now() + Math.random(), todoTextVal:'Kitap oku', isDone:false}
 ]
 
-const App = () => {
 
+const App = () => {
+  
 const [dataState, setDataState] = useState(todo_data)
+const [text, setText] = useState('')
 
 const render = (item) => {
   return(
     <View>
-      <Todos name={item.name} isDone={item.isDone} id={item.id} change={doneChange} />
+      <Todos name={item.todoTextVal} isDone={item.isDone} id={item.id} change={doneChange} />
     </View>
   );
 }
@@ -33,16 +35,24 @@ const doneChange = id => {
   setDataState(newTodos)
 }
 
+const addTodo = () => {
+  setDataState([...dataState, 
+    {id: Date.now() + Math.random(), todoTextVal:text, isDone:false}
+  ]);
+  setText('')
+}
+
+
   return(
     <View  style={styles.mainView}>
-      <Heading />
+      <Heading todosNumber={dataState} />
 
       <FlatList 
         data={dataState} 
         renderItem={({item}) => render(item)}
       />
       
-      <Input />
+      <Input text={text} setText={setText} addTodo={addTodo} />
     </View>
   )
 }
