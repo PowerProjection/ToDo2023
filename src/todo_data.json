@@ -1,0 +1,7 @@
+[
+	{"id":1, "todoTextVal":"Köpeği gezdir", "isDone":false},
+	{"id":2, "todoTextVal":"Çiçekleri sula", "isDone":true},
+	{"id":3, "todoTextVal":"Alışveriş yap", "isDone":false},
+	{"id":4, "todoTextVal":"Kitap oku", "isDone":false}
+ ];
+

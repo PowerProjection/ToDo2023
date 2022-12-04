@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {View, Text, TextInput, TouchableOpacity} from "react-native";
 import styles from './Input.styles';
 
 const Input = ({text, setText, addTodo}) => {
 
-    let myText = ""
+    const [newColor, setNewColor] = useState('#808080');
+    
     return(
         <View style={styles.inputView}>
 
@@ -14,11 +15,13 @@ const Input = ({text, setText, addTodo}) => {
                 placeholderTextColor="#7c7d7d"
                 onChangeText={setText}
                 value={text}
+                onFocus={() => setNewColor('orange')}
+                onBlur={() => setNewColor('#808080')}
                 
             />
 
             <TouchableOpacity 
-                style={styles.inputTouchable}
+                style={[styles.inputTouchable, {backgroundColor:newColor}]}
                 onPress={addTodo} 
             >
                     <Text style={styles.inputText} >Kaydet</Text>

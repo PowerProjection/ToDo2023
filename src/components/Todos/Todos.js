@@ -11,6 +11,7 @@ const Todos = (item) => {
                 console.log(item.id, "-",item.isDone) & 
                 item.change(item.id) 
                 }
+            onLongPress={() => item.delete(item.id)}
             >
                 
                 <Text style={item.isDone ? styles.todosDoneText : styles.todosText} >

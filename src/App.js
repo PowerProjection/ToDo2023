@@ -1,16 +1,9 @@
 import React, {useState} from "react";
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet, Alert} from 'react-native';
 import Heading from './components/Heading';
 import Input from './components/Input';
 import Todos from './components/Todos';
-
-const todo_data = [
-  {id:Date.now() + Math.random(), todoTextVal:'Köpeği gezdir', isDone:false},
-  {id:Date.now() + Math.random(), todoTextVal:'Çiçekleri sula', isDone:true},
-  {id:Date.now() + Math.random(), todoTextVal:'Alışveriş yap', isDone:false},
-  {id:Date.now() + Math.random(), todoTextVal:'Kitap oku', isDone:false}
-]
-
+import todo_data from './todo_data.json';
 
 const App = () => {
   
@@ -20,10 +13,22 @@ const [text, setText] = useState('')
 const render = (item) => {
   return(
     <View>
-      <Todos name={item.todoTextVal} isDone={item.isDone} id={item.id} change={doneChange} />
+      <Todos 
+        name={item.todoTextVal} 
+        isDone={item.isDone} 
+        id={item.id} 
+        change={doneChange} 
+        delete={deleteTodo} 
+      />
     </View>
   );
 }
+
+const deleteTodo = id => {
+  const newTodos = dataState.filter(todo => todo.id !== id)
+  setDataState(newTodos)
+}
+
 
 const doneChange = id => {
   const newTodos = dataState.map(todo => {
@@ -36,10 +41,11 @@ const doneChange = id => {
 }
 
 const addTodo = () => {
+  if (text.length <3) return Alert.alert("Notunuz 2 karakterden az olamaz") //return breaks the function
   setDataState([...dataState, 
     {id: Date.now() + Math.random(), todoTextVal:text, isDone:false}
   ]);
-  setText('')
+  setText('') //textbox cleared
 }
 
 

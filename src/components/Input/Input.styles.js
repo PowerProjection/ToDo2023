@@ -8,13 +8,13 @@ export default StyleSheet.create({
         borderRadius:10
     },
     inputTouchable:{
-        backgroundColor:'#808080',
         marginTop:10,
         marginLeft:10,
         marginRight:10,
         borderRadius:10,
         padding:10,
-        alignItems:'center'
+        alignItems:'center',
+        
     },
     inputText:{
         color:'white',
